@@ -1,0 +1,20 @@
+{
+    "name": "kahnu044/wp-graphql-previous-next-post",
+    "description": "Adds post type for previous and next post field",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kahnu Charan Swain",
+            "email": "djkanha044@gmail.com",
+            "role": "developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "WPGraphQL\\Extensions\\PreviousNextPost\\": "src/"
+        }
+    },
+    "require": {}
+}
