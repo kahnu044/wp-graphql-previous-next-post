@@ -5,7 +5,7 @@ Using this plugin, you can get the previous and next post.
 ### Installation
 
 ```sh
-Download the latest version of this plugin and upload and activate the plugin
+Download the latest version of this plugin, upload and activate the plugin
 ```
 
 ### Query usage example
