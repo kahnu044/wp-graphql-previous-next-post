@@ -40,7 +40,7 @@ class Loader
             'args' => array(
                 'inSameTerm' => array(
                     'type' => 'Boolean',
-                    'description' => __('Whether to show posts from the same category', 'wpgraphql-previous-next-post'),
+                    'description' => __('Whether to show the previous posts from the same category', 'wpgraphql-previous-next-post'),
                 ),
             ),
             'description' => __(
@@ -77,6 +77,12 @@ class Loader
 
         register_graphql_field('Post', 'nextPost', [
             'type' => 'Post',
+            'args' => array(
+                'inSameTerm' => array(
+                    'type' => 'Boolean',
+                    'description' => __('Whether to show the next posts from the same category', 'wpgraphql-previous-next-post'),
+                ),
+            ),
             'description' => __(
                 'Next post'
             ),
