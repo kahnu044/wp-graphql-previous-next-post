@@ -37,6 +37,17 @@ query Post {
 }
 ```
 
+
+### For Same Category
+```
+previousPost(inSameTerm: true) {
+    title
+}
+nextPost(inSameTerm: true) {
+    title
+}
+```
+
 ### Query Response Sample
 ```
 {
