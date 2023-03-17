@@ -30,7 +30,6 @@ class Loader
             9,
             0
         );
-
     }
 
     public function wgpnp_action_register_types()
@@ -38,6 +37,12 @@ class Loader
 
         register_graphql_field('Post', 'previousPost', [
             'type' => 'Post',
+            'args' => array(
+                'inSameTerm' => array(
+                    'type' => 'Boolean',
+                    'description' => __('Whether to show posts from the same category', 'wpgraphql-previous-next-post'),
+                ),
+            ),
             'description' => __(
                 'Previous post'
             ),
@@ -51,7 +56,14 @@ class Loader
                 // setup global $post variable
                 setup_postdata($post);
 
-                $prev = get_previous_post();
+                // Get Post for same category
+                $in_same_term = isset($args['inSameTerm']) ? $args['inSameTerm'] : false;
+
+                $post_args = array(
+                    'in_same_term' => $in_same_term
+                );
+
+                $prev = get_previous_post($post_args);
 
                 wp_reset_postdata();
 
@@ -77,7 +89,14 @@ class Loader
                 // setup global $post variable
                 setup_postdata($post);
 
-                $next = get_next_post();
+                // Get Post for same category
+                $in_same_term = isset($args['inSameTerm']) ? $args['inSameTerm'] : false;
+
+                $post_args = array(
+                    'in_same_term' => $in_same_term
+                );
+
+                $next = get_next_post($post_args);
 
                 wp_reset_postdata();
 
